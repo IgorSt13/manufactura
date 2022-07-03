@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'for_user/css/about_us_style.css' %}" type="text/css">
+{% endblock links %}
+
+{% block content %}
+<div class="about-block">
+    <div class="about-block__info">
+        <div class="about-block__title">
+            <span>Про ресторан</span>
+        </div>
+        <div class="about-block__text">
+            <span>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, minima! Modi, saepe. 
+                Fugit earum vitae doloribus quis, sed unde ipsam, reiciendis quisquam libero aperiam, 
+                quasi facere animi enim optio dicta!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, minima! Modi, saepe. 
+                Fugit earum vitae doloribus quis, sed unde ipsam, reiciendis quisquam libero aperiam, 
+                quasi facere animi enim optio dicta!
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, minima! Modi, saepe. 
+                Fugit earum vitae doloribus quis, sed unde ipsam, reiciendis quisquam libero aperiam, 
+                quasi facere animi enim optio dicta!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, minima! Modi, saepe. 
+                Fugit earum vitae doloribus quis, sed unde ipsam, reiciendis quisquam libero aperiam, 
+                quasi facere animi enim optio dicta!
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, minima! Modi, saepe. 
+                Fugit earum vitae doloribus quis, sed unde ipsam, reiciendis quisquam libero aperiam, 
+                quasi facere animi enim optio dicta!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, minima! Modi, saepe. 
+                Fugit earum vitae doloribus quis, sed unde ipsam, reiciendis quisquam libero aperiam, 
+                quasi facere animi enim optio dicta!
+            </span>
+        </div>
+        
+
+    </div>
+    <div class="about-block__image">
+        <img src="{{path_pref}}media/photos/template_images/mainpage/about.png" alt="">
+    </div>
+</div>
+{% endblock content %}

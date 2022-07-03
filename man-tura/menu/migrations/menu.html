@@ -1,0 +1,30 @@
+{% extends 'menu/base.html' %}
+{% block content %}
+
+<script language="JavaScript" type="text/javascript">
+    function linklist(what){
+    var selectedopt=what.options[what.selectedIndex]
+    if (document.getElementById && selectedopt.getAttribute("target")=="new")
+    window.open(selectedopt.value)
+    else
+    window.location=selectedopt.value
+    }
+</script>
+<form name="menu">
+    <select name="categories" onChange="linklist(document.menu.categories)">
+    <option value="#">Оберіть категорію страви</option>
+    <option value="{% url 'all_menu' %}">Усі страви</option>
+    {% for cat in categories %}
+    <option value="{{cat.get_absolute_url}}">{{cat}}</option>
+    {% endfor %}
+    </select>
+</form>
+
+{% for product in products %}
+<p><img src="{{product.photo.url}}" ></p> 
+<p>{{product.name}}</p>
+<p>{{product.price}} ГРН</p>
+<br>
+<hr>
+{% endfor %}
+{% endblock content %}
