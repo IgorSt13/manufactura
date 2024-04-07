@@ -1,0 +1,52 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'for_user/css/contactsstyle.css' %}" type="text/css">
+{% endblock links %}
+{% block content %}
+<div class="contacts-block">
+    <div class="contacts-block__map-img">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5291.422891370646!2d35.03653351544916!3d48.462065766985276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe394045991a3%3A0x11940a11c1c3e439!2sManufactura%20restaurant!5e0!3m2!1sru!2sde!4v1655383504552!5m2!1sru!2sde" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="contacts-block__info">
+        <div class="contacts-block__title">
+            <span>Контакти</span>
+        </div>
+        <div class="contacts-block__address">
+            <span class="address__icon"><img src="{% static 'base/img/icons/location-outline.svg' %}" alt=""></span> 
+            <span class="address__text">Дніпро, вулиця М. Грушевського 4А </span>
+        </div>
+        <div class="contacts-block__time-working">
+            <span>Працюємо {{rest_info.time_working }}</span>
+        </div>
+        <div class="contacts-block__phone-number">
+            <span>Телефонуйте нам:
+                <a href="tel:+{{ rest_info.rest_phone_number }}">+{{ rest_info.rest_phone_number }}</a>
+            </span>
+        </div>
+        <div class="contacts-block__instagram">
+            <span class="instagram__icon"><img src="{% static 'base/img/icons/logo-instagram.svg' %}" alt=""></span> 
+            <span class="instagram__text"><a href="https://instagram.com/manufactura.restaurant">Ми в Інстаграм</a></span>
+        </div>
+    </div>
+</div>
+<div class="follow-us-block">
+    <div class="follow-us-block__info">
+        <div class="follow-us-block__title">
+            <span>Слідкуйте за нами</span>
+        </div>
+        <div class="follow-us-block__text">
+            <p>Ми також є в соцмережах.</p> <p>Посилання на наш Інстаграм:</p>
+        </div>
+        <div class="follow-us-block__button">
+            <a href="https://instagram.com/manufactura.restaurant">Наш Інстаграм</a>
+        </div>
+    </div>
+    <img src="{% static 'mainpage/img/block_follow_us/1.png' %}" alt="">
+    <img src="{% static 'mainpage/img/block_follow_us/2.png' %}" alt="">
+    <img src="{% static 'mainpage/img/block_follow_us/3.png' %}" alt="">
+    <img src="{% static 'mainpage/img/block_follow_us/4.png' %}" alt="">
+    <img src="{% static 'mainpage/img/block_follow_us/5.png' %}" alt="">
+    <img src="{% static 'mainpage/img/block_follow_us/6.png' %}" alt="">
+</div>
+{% endblock content %}

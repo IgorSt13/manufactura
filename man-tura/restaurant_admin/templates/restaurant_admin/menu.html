@@ -1,0 +1,148 @@
+{% extends 'restaurant_admin/base.html' %}
+{% load  static %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'restaurant_admin/css/menustyle.css' %}">
+{% endblock links %}
+    
+    
+{% block content %}
+    <header>
+        <div class="wrapper">
+            <div class="head">
+                <div class="head__logo">
+                    <a href="#"><img src="{% static 'base/img/logo.png' %}" alt="logo"></a>
+                </div>
+                <div class="head__slogan">
+                    <span>Редагування меню</span>
+                </div>
+                <ul class="head__buttons">
+                    <li><a href="{% url 'logout_admin' %}"><img src="{% static 'base/img/icons/log-out-outline.svg' %}" alt="" class="icon"></a></li>   
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main>
+    <div class="scrollup">
+        <ion-icon name="arrow-up-circle-outline"></ion-icon>
+    </div>
+    <div class="h-scroller">
+        <div class="h-scroller__items">
+            <div class="h-src-items-wrapper">
+            {% for cat in categories %}
+                <div class="edit_cat">
+                    <a href="#{{cat.slug}}" class="h-scroller__item selected_category cat-sp">{{cat}}</a>
+                    <p class="category-pk" style="display: none;">{{cat.pk}}</p> 
+                    <button class="btn-edit-cat btn-edit "><img src="{% static 'base/img/icons/pencil-outline.svg' %}" alt=""></button>
+                </div>  
+            {% endfor %}
+            <div class="add_cat"><a href="#" class="h-scroller__item">+</a></div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="modal-category"></div>
+    <div class="modal__content-category">
+        <i class="modal__close-category far fa-times-circle">&times;</i>
+        <form action="" method="post" class="cat_form">
+            {% csrf_token %}
+            <input type="text" name="cat_pk" class = 'cat_pk' hidden>
+            <span class="title-modal-category"></span>
+            <div class="field">
+                <span class="cat_name"><input type="text" placeholder="Ім'я категорії" name="cat_name"></span>
+            </div>
+            <div class="field location">
+
+            </div>
+            <div class="field">
+                <span class="but">
+                    <button class="detail__bagBtn delete-category" type="submit" id="del-category" value="cat_del" name="modal-button">Видалити</button>
+                    <button class="detail__bagBtn other-category" type="submit" name="modal-button"></button>
+                </span>
+            </div>
+        </form>
+    </div>  
+    <!-- Показываем блюда -->
+    <div class="products-container">
+        {% for cat in categories %}
+            {% if showing_all_menu %}
+                <a id="{{cat.slug}}" class="cat-link" ></a>
+                <p class="category-title">{{cat}}</p> 
+                
+            {% endif %}
+            <div class="list">
+                {% for product in products %}
+
+                    {% if product.cat == cat %}
+
+                        <div class="product">
+                            <input type="text" hidden class="pk" value="{{ product.pk }}">
+                            
+                            <div class="product_photo">
+                                <p><img src="{{product.photo.url}}" class="product__img"></p> 
+                            </div>
+                            <div class="product_text">
+                                <p class="name">{{product.name}}</p>
+                                
+                                <p class="composition">{{product.composition}}</p>
+                                <div class="product__bottom">
+                                    <span class="price"><span class="price num">{{product.price}}</span> грн</span>
+                                    <button class="btn-edit-dish btn-edit" type="submit">
+                                    <img src="{% static 'base/img/icons/pencil-outline.svg' %}" alt=""></button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {%endfor%}
+                
+                {% if category_selected == cat.pk or category_selected == 0%}
+                    <div class="modal_pr">
+                        <input type="text" hidden class="prod-cat-id" value="{{ cat.id }}">
+                        <button class="add-product-symb">
+                        +
+                        </button>
+                    </div>
+                    
+                {% endif %}
+            </div>
+            <div class="modal-menu"></div>
+            <form id="modal__form" enctype="multipart/form-data" method="post">
+                {% csrf_token %}
+                <div class="modal__content-menu">
+                    <i class="modal__close-menu far fa-times-circle">&times;</i>
+                    
+                    <div class="modal__left">
+                        <img src="" alt="" id="image_id" class="load-img">
+                        <div><label class="b"><input type="file" id="file_id" name="product-image" accept="image/*">Обрати зображення</label></div>
+                    </div>
+                    <div class="modal__right">
+                        <div class="detail">
+                            <input type="text" hidden class="chosen-pk" name="chosen-pk">
+                            <input type="text" hidden class="chosen-prod-cat-id" name="chosen-prod-cat-id">
+                            <span class="title-modal-menu"></span>
+                            <p class="detail__title" id="product-name" ><input type="text" placeholder="Ім'я страви" name="product-name" required></p>
+                            <p class="detail__description"><textarea name="product-description" id="" cols="30" rows="10" placeholder="Склад страви"></textarea></p>
+                            <p class="detail__price"><input type="number" placeholder="Ціна" name="product-price" required> грн</p>
+                            <div class="buttons">
+                                <button class="detail__bagBtn delete-menu" type="submit" id="del-menu" name = 'modal-button' value="dish_del">Видалити</button>
+                                <button class="detail__bagBtn other-menu" type="submit" name = 'modal-button'></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        {% endfor %}
+    </div>  
+    </main> 
+<script src="{% static 'restaurant_admin/js/modal_add_dish.js' %}"></script>
+<script src="{% static 'restaurant_admin/js/modal_edit_dish.js' %}"></script>
+<script src="{% static 'restaurant_admin/js/modal_add_category.js' %}"></script>
+<script src="{% static 'restaurant_admin/js/modal_edit_category.js' %}"></script>
+<script src="{% static 'restaurant_admin/js/load_image.js' %}"></script>
+<script src="{% static 'restaurant_admin/js/jquery-3.6.0.js' %}"></script>
+<script src="{% static 'restaurant_admin/js/scrollup.js' %}"></script>
+<script src="{% static 'base/js/smooth_scroll.js' %}"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+{% endblock content %}

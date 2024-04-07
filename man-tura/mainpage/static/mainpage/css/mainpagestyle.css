@@ -1,0 +1,418 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Kaushan+Script&family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://allfont.ru/allfont.css?fonts=carolina');
+@import url('https://fonts.googleapis.com/css2?family=Mr+De+Haviland&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+/* Формление главного блока */
+header{
+    display: none;
+    
+}
+
+.main-footer-wrapper{
+    padding: 0;
+}
+
+
+
+.main-block__container{
+    width: 100%;
+    position:relative;
+    text-align: center;
+    padding-top: 20px;
+
+  
+}
+
+
+
+.main-block__img img{
+    width: 700px;
+
+
+}
+.main-block__title::first-letter{
+    font-size: 200px;
+}
+
+.main-block__slogan{
+    display: inline-block;
+    border-top: 2px rgb(3, 67, 3) solid;
+    border-bottom: 2px rgb(3, 67, 3) solid;
+    /* margin-top: 100px; */
+    padding: 10px 0 15px 0;
+    font-size: 40px;
+    color: #554441;
+    font-family: 'Roboto Slab', serif;
+    /* text-shadow: 2px 2px 2px black; */
+    /* font-weight: bold; */
+}
+.main-block .container-buttons{
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.main-block__buttons{
+    display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.main-block .to-reservation, .main-block .to-menu{
+    margin-top: 30px;
+    width:200px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    box-shadow: 1px 1px 2px black;
+    border: 1px #554441 solid;
+    color: #554441;
+    box-shadow: 1px 1px 2px grey;
+    font-size: 28px;
+    font-family: 'Roboto Slab', serif;
+    
+   
+}
+
+.main-block .to-reservation{
+    font-size: 20px;
+}
+
+/* .main-block .to-menu{
+    
+    background-color: gold;
+    font-size: 36px;
+    color: black;
+    border-radius: 15px;
+    
+   
+}
+
+.main-block .to-reservation{
+    border: 2px white solid;
+    font-size: 25px;
+    color: white;
+    background-color: green;
+} */
+
+.main-block .to-menu:hover, .main-block .to-reservation:hover{
+    background-color: gainsboro;
+}
+
+
+
+/* Офрмление слайдера */
+
+.slider {
+    border-radius: 20px;
+
+    /* width: 100%; */
+    width: 500px;
+    /* height: 300px; */
+    margin-top: 45px;
+    margin-left: 50vw;
+    overflow: hidden;
+    height: 200px;
+    box-shadow: 1px 1px 2px black;
+    
+    
+}
+
+.slider img{
+    width: 500px;
+    height: 200px;
+}
+
+
+.slider-line {
+    display: flex;
+    position: relative;
+    left: 0;
+    transition: all ease 1s;;
+}
+
+
+
+
+
+
+/* Оформление блока о сайте, инстаграмме и контактах */
+.about-block, .contacts-block, .follow-us-block {
+    margin: 0 auto;
+    margin-top: 100px;
+    display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+    max-width: 200vh;
+}
+
+.about-block__info, .contacts-block__info, .follow-us-block__info {
+    max-width: 80vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px;
+    color: #554441;
+}
+
+
+.about-block__title, .contacts-block__title, .follow-us-block__title{
+    width:fit-content;
+    font-size: 50px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 900;
+    border-bottom: 2px rgb(3, 67, 3) solid;
+    padding-bottom: 7px;
+
+   
+
+   
+}
+
+
+
+.about-block__text, .follow-us-block__text{
+    margin-top: 20px;
+    font-size: 18px;
+    font-family: 'Roboto Slab', serif;
+    text-align: justify;
+}
+.about-block__text span{
+    margin-left: 20px;
+}
+.contacts-block__info{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.about-block__button a, .follow-us-block__button a{
+    margin-top: 20px;
+    width:160px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    border-radius: 15px;
+    color: #554441;
+    font-family: 'Roboto Slab', serif;
+    border: 1px #554441 solid;
+    box-shadow: 1px 1px 2px grey;
+}
+
+
+.about-block__button a:hover, .follow-us-block__button a:hover{
+    background-color: gainsboro;
+}
+
+
+
+.about-block__image, .contacts-block__map-img{
+    width: 80vh;
+    margin: 10px;
+    
+
+}
+
+.about-block__image video, .contacts-block__map-img iframe{
+    width: 80vh;
+    border-radius: 20px;
+    border: 1px #554441 solid;
+    box-shadow: 1px 1px 2px grey;
+    border-radius: 20px;
+    
+}
+
+
+.follow-us-block img{
+    margin-top: 10px;
+    width: 40vh;
+    border-radius: 20px;
+}
+
+
+
+
+
+
+
+.contacts-block{
+    flex-flow: wrap-reverse;
+    margin-bottom: 100px;
+}
+.contacts-block__map-img iframe, .contacts-block__map-img{
+    height: 60vh;
+}
+
+.contacts-block__address{
+    margin-top: 20px;
+    height: 25px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.contacts-block__address .address__text{
+    line-height: 35px;    
+}
+
+.contacts-block__address .address__icon img{
+    width: 28px;
+
+}
+
+.contacts-block__time-working, .contacts-block__phone-number{
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.contacts-block__phone-number a{
+    color: #554441;
+	text-decoration: underline;
+}
+
+.contacts-block__instagram{
+    margin-top: 20px;
+    height: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.contacts-block__instagram .instagram__text{
+    line-height: 21px;    
+}
+
+.contacts-block__instagram .instagram__icon img{
+    width: 18px;
+
+}
+
+
+.contacts-block__instagram a{
+    color: #554441;
+	text-decoration: underline;
+}
+
+/* Общие Настройки */
+.about-block img, .follow-us-block img, iframe{
+    border: 1px #554441 solid;
+    box-shadow: 1px 1px 2px grey;
+}
+
+/* Медиа-запросы */
+@media (max-width:1023px){
+    .contacts-block__address .address__text{
+        line-height: 0px;    
+    }
+
+    .follow-us-block, .follow-us-block__info{
+        max-width: 55vh;
+    }
+    .follow-us-block img{
+        max-width: 24vh;
+    }
+    .about-block__image, .about-block__image video, .about-block__info, .about-block{
+        max-width: 55vh;
+    }
+    .contacts-block, .contacts-block__map-img, .contacts-block__map-img iframe{
+        max-width: 55vh;
+    }
+    .contacts-block__map-img iframe,  .contacts-block__map-img{
+        max-height: 55vh;
+    }
+
+ 
+
+}
+
+@media (max-width:767px) {
+
+    /* .slider{
+        margin-top: 105px
+    }
+    .slider, .slider img{
+        width:300px;
+        height:120px;
+    } */
+    
+	.main-block__title{	
+		font-size: 45px;
+	}
+    .main-block__title::first-letter{
+        font-size: 100px;
+    }
+    .main-block__slogan{
+        font-size: 22.5px;
+    }
+
+    .main-block .container-buttons{
+        max-width: 200px;
+        
+    }
+
+    .follow-us-block img, .follow-us-block__info{
+        max-width: 45vh;
+    }
+    .about-block__image, .about-block__image video, .about-block__info{
+        max-width: 45vh;
+    }
+    .contacts-block, .contacts-block__map-img, .contacts-block__map-img iframe{
+        max-width: 45vh;
+    }
+    .contacts-block__map-img iframe,  .contacts-block__map-img{
+        max-height: 45vh;
+    }
+    .contacts-block__time-working{
+        padding-top: 20px;
+    }
+
+    .main-block__img img{
+        width: 90%;
+    
+    
+    }
+
+    .about-block__title, .contacts-block__title, .follow-us-block__title{
+        width:min-content;
+    
+    }
+   
+    
+}
+
+@media (max-width:280px) {
+    .slider, .slider img{
+        width:250px;
+        height:100px;
+    }
+    .slider-line{
+        left: 0;
+    }
+    .main-block__title::first-letter{
+        font-size: 60px;
+    }
+   
+    .follow-us-block, .follow-us-block__info{
+        max-width: 40vh;
+    }
+    .follow-us-block img{
+        max-width: 40vh;
+    }
+
+    .follow-us-block img, .follow-us-block__info{
+        width: 40vh;
+    }
+    .about-block__image, .about-block__image video, .about-block__info{
+        max-width: 40vh;
+    }
+    .contacts-block, .contacts-block__map-img, .contacts-block__map-img iframe{
+        max-width: 40vh;
+    }
+    .contacts-block__map-img iframe,  .contacts-block__map-img{
+        max-height: 40vh;
+    }
+    
+
+   
+    
+}

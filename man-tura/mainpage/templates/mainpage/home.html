@@ -1,0 +1,112 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'mainpage/css/mainpagestyle.css' %}">
+<meta name="keywords" content="manufactura днепр, дніпро manufactura, днепр manufactura, manufactura дніпро, ресторан manufactura днепр, 
+ресторан manufactura дніпро, дніпро ресторан manufactura, днепр ресторан manufactura, ресторан мануфактура, дніпро ресторан мануфактура, 
+днепр ресторан мануфактура, restaurant manufactura, restaurant manufactura dnipro">
+{% endblock links %}
+{% block content %}
+<div class="main-block">
+    <div class="main-block__container">
+        <div class="main-block__img">
+
+            <!-- <span>Manufactura</span> -->
+            <img src="{% static 'mainpage/img/img-mainblock.png' %}" alt="">
+
+        </div>
+
+    
+        <div class="main-block__slogan">
+            <span>Ресторан з історією</span>
+        </div>
+       <div class="container-buttons">
+            <div class="main-block__buttons">
+                <a class="to-menu" href="{% url 'all_menu' %}">Меню</a>
+                <a class="to-reservation" href="{% url 'reservation_only' %}">Бронювання столика</a>
+            </div>
+        </div>
+
+    </div>    
+</div>
+
+<div class="about-block">
+    <div class="about-block__info">
+        <div class="about-block__title">
+            <span>Про ресторан</span>
+        </div>
+        <div class="about-block__text">
+            <span>
+                <!-- <span></span>Ресторан Manufactura розташований у самому центрi мiста Днiпра в iсторичнiй будiвлi 1872 року.
+                Простора зала, сучасний стиль інтер’єру, світлі кольори меблів, панорамні вікна з краєвидом на мальовничий квартал мiста – все це дарує гостям відчуття свободи та легкості.
+                Головна зала ресторану оформлена стримано та елегантно. В центрі — оригінальнi свiтильники на стелi, що запалюються вечорами та додають закладу чарiвний затишок. -->
+                {{rest_info.about_restaurant | truncatewords:60 }}
+            </span>
+        </div>
+        <div class="about-block__button">
+            <a href="{% url 'about_us' %}">Детальніше</a>
+        </div>
+        
+
+    </div>
+    <div class="about-block__image">
+        <video src="{{rest_info.main_page_video.url}}" loop autoplay muted></video>
+        
+    </div>
+</div>
+
+<div class="follow-us-block">
+    <div class="follow-us-block__info">
+        <div class="follow-us-block__title">
+            <span>Слідкуйте за нами</span>
+        </div>
+        <div class="follow-us-block__text">
+            <span>
+                <p>Ми також є в соцмережах.</p> <p>Посилання на наш Інстаграм:</p>
+            </span>
+        </div>
+        <div class="follow-us-block__button">
+            <a href="https://instagram.com/manufactura.restaurant">Наш Інстаграм</a>
+        </div>
+    </div>
+    <img src="{% static 'mainpage/img/block_follow_us/1.png' %}" alt="">
+    <img src="{% static 'mainpage/img/block_follow_us/2.png' %}" alt="">
+    <img src="{% static 'mainpage/img/block_follow_us/3.png' %}" alt="">
+    <img src="{% static 'mainpage/img/block_follow_us/4.png' %}" alt="">
+    <img src="{% static 'mainpage/img/block_follow_us/5.png' %}" alt="">
+    <img src="{% static 'mainpage/img/block_follow_us/6.png' %}" alt="">
+</div>
+
+<div class="contacts-block">
+    <div class="contacts-block__map-img">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5291.422891370646!2d35.03653351544916!3d48.462065766985276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe394045991a3%3A0x11940a11c1c3e439!2sManufactura%20restaurant!5e0!3m2!1sru!2sde!4v1655383504552!5m2!1sru!2sde" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="contacts-block__info">
+        <div class="contacts-block__title">
+            <span>Контакти</span>
+        </div>
+        <div class="contacts-block__address">
+            <span class="address__icon"><img src="{% static 'base/img/icons/location-outline.svg' %}" alt=""></span> 
+            <span class="address__text">Дніпро, вулиця М. Грушевського 4А </span>
+        </div>
+        <div class="contacts-block__time-working">
+            <span>Працюємо {{rest_info.time_working }}</span>
+        </div>
+        <div class="contacts-block__phone-number">
+            <span>Телефонуйте нам:
+                <a href="tel:+{{ rest_info.rest_phone_number }}">+{{ rest_info.rest_phone_number }}</a>
+            </span>
+        </div>
+        <div class="contacts-block__instagram">
+            <span class="instagram__icon"><img src="{% static 'base/img/icons/logo-instagram.svg' %}" alt=""></span> 
+            <span class="instagram__text"><a href="https://instagram.com/manufactura.restaurant">Ми в Інстаграм</a></span>
+        </div>
+    </div>
+</div>
+
+    
+{% endblock content %}
+
+{% block scripts %}
+    <!-- <script src="{% static 'mainpage/js/sliderscript.js' %}"></script> -->
+{% endblock scripts %}

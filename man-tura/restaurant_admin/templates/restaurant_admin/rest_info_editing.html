@@ -1,0 +1,63 @@
+{% extends 'restaurant_admin/base.html' %}
+{% load static %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'restaurant_admin/css/rest_info_edit_style.css' %}">
+{% endblock links %}
+
+{% block content %}
+    <header>
+        <div class="wrapper">
+            <div class="head">
+                <div class="head__logo">
+                    <a href="#"><img src="{% static 'base/img/logo.png' %}" alt="logo"></a>
+                </div>
+                <div class="head__slogan">
+                    <span>Редагування інформації про ресторан</span>
+                </div>
+                <ul class="head__buttons">
+                    <li><a href="{% url 'logout_admin' %}"><img src="{% static 'base/img/icons/log-out-outline.svg' %}" alt="" class="icon"></a></li>   
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main>
+        {% for rest in resta_info %}
+            <div class="rest-info">
+                <span class="lab">Про ресторан</span>
+                <div class="text-info">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <textarea  id="" cols="30" rows="10" placeholder="Введіть текст" name="about-text">{{rest.about_restaurant}}</textarea>
+                        <button type="submit" class="but-save-text" name="button-submit" value="changing-about">Зберегти</button>
+                    </form>
+                <div>
+                </form>
+            </div>
+            <div class="video-info">
+                <span class="lab">Відео</span>
+                <div class="video">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <video src="{{rest.main_page_video.url}}" id="vid" loop autoplay muted></video>
+                        <div><label class="label-video"><input type="file" id="video-id" accept="video/*" name="video">Обрати відео</label></div>
+                        <button type="submit" class="but-save-video" name="button-submit" value="changing-video">Зберегти</button>
+                    </form>
+                </div>
+            </div>
+            <div class="other-info">
+                <span class="lab">Футер</span>
+                <div class="info">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <span class="dat">Тел. номер: +<input type="number" value="{{rest.rest_phone_number}}" name="tel-number"></span>
+                        <span class="dat">Час роботи: <input type="text" value="{{rest.time_working}}" name="time-working"></span>
+                        <span class="dat">Ім'я Wi-Fi: <input type="text" value="{{rest.wifi_name}}" name="wifi-name"></span>
+                        <span class="dat">Пароль Wi-Fi: <input type="text" value="{{rest.wifi_password}}" name="wifi-password"></span>
+                        <button type="submit" class="but-save-info" name="button-submit" value="changing-footer">Зберегти</button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </main>
+    <script src="{% static 'restaurant_admin/js/load_video.js' %}"></script>
+{% endblock content %}
